@@ -1,0 +1,9 @@
+<ul class="nav nav-pills justify-content-around m-3">
+  {% for display_status in ('all', 'active', 'completed') %}
+    <li class="nav-item">
+    <a class="nav-link {% if display_status == status %} active {% endif %}"
+       href="{{ url_for('tasks.todo_list', status=display_status) }}">
+      {{ display_status|capitalize }}
+    </a>
+  {% endfor %}
+</ul>

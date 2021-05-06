@@ -1,0 +1,18 @@
+{% for task in tasks %}
+  <div class="card my-2">
+    <div class="card-body px-3 py-2 d-flex justify-content-between align-items-center">
+      {% if task.active %}
+        <div>{{ task.description }}</div>
+        <div>
+          <form action="{{ url_for('tasks.complete_task', task_id=task.id, **request.args) }}" method="post">
+            <button class="btn btn-primary">Finish</button>
+          </form>
+        </div>
+      {% else %}
+        <div>
+          <del>{{ task.description }}</del>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}

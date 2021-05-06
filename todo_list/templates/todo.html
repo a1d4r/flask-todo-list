@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
+{% from 'bootstrap/utils.html' import render_icon %}
+
+{% block title %}To Do List{% endblock %}
+
+{% block content %}
+  <h1 class="text-center m-2">To Do List</h1>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card bg-light">
+            <div class="card-body">
+              {% include 'add-task-form.html' %}
+              {% include 'search-form.html' %}
+              {% include 'status-nav.html' %}
+              {% include 'tasks-list.html' %}
+              {{ render_pagination(pagination) }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<form action="" method="get" class="my-3">
+  <div class="input-group">
+    {% for name, value in request.args.items() %}
+      {% if name != 'filter' %}
+        <input type="hidden" name="{{ name }}" value="{{ value }}">
+      {% endif %}
+    {% endfor %}
+    <input type="search" class="form-control" name="filter" placeholder="Search" required
+           value="{{ request.args.get('filter', '') }}">
+    <div class="input-group-append">
+      <button type="submit" class="btn btn-primary">
+        {{ render_icon('search') }}
+      </button>
+    </div>
+  </div>
+</form>
